@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import { DB } from "../config/config";
+import { DB } from "../@config/config";
 
 export const DB_URI = DB;
 if (DB_URI) {
@@ -28,7 +28,7 @@ if (DB_URI) {
     console.log("Mongoose default connection disocnnected");
   });
 
-  process.on("SIGNINT", () => {
+  process.on("SIGINT", () => {
     // @ts-ignore
     mongoose.connection.close(() => {
       console.log("Mongoose connection disconnected through temrination");

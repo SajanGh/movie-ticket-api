@@ -1,9 +1,10 @@
 import bodyParser from "body-parser";
 import express from "express";
 
-import authRoute from "./routes/authRoute";
+import routes from "./routes";
 import { Application } from "express-serve-static-core";
-import "./database/database";
+import cors from "cors";
+import "./@config/db.config";
 
 class Main {
   public app: express.Application;
@@ -12,9 +13,10 @@ class Main {
     this.app = express();
     this.config(this.app);
 
-    this.app.use(authRoute);
+    this.app.use(routes);
   }
   private config(app: Application): void {
+    this.app.use(cors());
     //support application/json type post data
     this.app.use(bodyParser.json());
     // support application/x-www-form-urlencode post false
