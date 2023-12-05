@@ -1,7 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
-import routes from "./routes/routes";
 
+import authRoute from "./routes/authRoute";
 import { Application } from "express-serve-static-core";
 import "./database/database";
 
@@ -12,8 +12,7 @@ class Main {
     this.app = express();
     this.config(this.app);
 
-    this.app.use(routes);
-    console.log("third");
+    this.app.use(authRoute);
   }
   private config(app: Application): void {
     //support application/json type post data

@@ -1,14 +1,10 @@
-import { Router, Express, Response, Request, Application } from "express";
+import { Router } from "express";
 import express from "express";
+import postRequest from "./auth.business";
 const router: Router = express.Router();
-const app: Express = express();
-console.log("running auth");
 
-export default class AuthController {
-  public getRequest = (req: Request, res: Response) => {
-    res.status(200).json({ message: "Get request successfull" });
-  };
-  postRequest = (req: Request, res: Response) => {
-    res.status(200).json({ message: "Post request successfull" });
-  };
-}
+const signupCtrl = new postRequest();
+
+router.post("/signup", signupCtrl.postRequest);
+
+export default router;
