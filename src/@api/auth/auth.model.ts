@@ -1,4 +1,4 @@
-import { Schema, model, Document } from "mongoose";
+import { Schema, model } from "mongoose";
 
 import { UserType } from "./dto/create-user.dto";
 
@@ -18,7 +18,6 @@ const userSchema: Schema<UserType> = new Schema(
     password: {
       type: Schema.Types.String,
       required: true,
-      select: false,
       maxLength: 100,
     },
     firstName: { type: Schema.Types.String, maxlength: 20, minLength: 3 },

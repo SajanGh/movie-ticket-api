@@ -9,28 +9,25 @@ export class AuthService {
   login = asyncHandler(async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
-      const user = await User.findOne({ email, password });
+      const user = await User.findOne({ email });
       if (!user) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid credentials: Users not found",
+        });
+      }
+      const verifyPassword = await argon2.verify(user.password, password);
+      if (!verifyPassword) {
         return res
           .status(401)
           .json({ success: false, message: "Invalid credentials" });
       }
-
-      const hashPassword = await argon2.hash("password");
-      user.password = hashPassword;
-
-      const verifyPassword = await argon2.verify(hashPassword, "password");
-      if (!verifyPassword) {
-        res
-          .status(401)
-          .json({ success: false, message: "Invalid credentials" });
-      }
-
       const token = jwt.sign({ userId: user._id }, SECRET_KEY);
       return res
         .status(200)
         .json({ success: true, data: user, jwt_token: token });
     } catch (err) {
+      console.log(err, "err");
       return res.status(500).json({ message: "Login failed", success: false });
     }
   });
@@ -51,7 +48,11 @@ export class AuthService {
           .status(400)
           .json({ success: false, message: "User already exists!" });
       }
+
       const user = new User({ username, firstName, lastName, email, password });
+
+      const hashPassword = await argon2.hash(password);
+      user.password = hashPassword;
       await user.save();
       return res.status(201).json({
         message: "Registration Successfull",
