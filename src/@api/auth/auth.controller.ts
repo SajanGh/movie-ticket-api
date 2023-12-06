@@ -8,14 +8,14 @@ import { userSchema } from "./dto/create-user.dto";
 
 const router: Router = express.Router();
 
-const signupCtrl = new AuthService();
+const authService = new AuthService();
 const authToken = new Authentication();
 
-router.post("/signup", validateRequestBody(userSchema), signupCtrl.register);
+router.post("/signup", validateRequestBody(userSchema), authService.register);
 router.post(
   "/login",
   validateRequestBody(loginSchema),
   authToken.authentication,
-  signupCtrl.login
+  authService.login
 );
 export default router;

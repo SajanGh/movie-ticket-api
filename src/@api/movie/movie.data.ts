@@ -135,3 +135,15 @@ export const movieData = [
       "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
   },
 ];
+
+const fake = [
+  {
+    title: "The Quantum Odyssey",
+    description:
+      "An epic journey through quantum realms and alternate realities.",
+    releaseDate: "2025-01-10",
+    duration: 160,
+    genre: ["Sci-Fi", "Adventure"],
+    posterURL: "http://example.com/posters/quantum_odyssey.jpg",
+  },
+];

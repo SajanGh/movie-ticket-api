@@ -9,15 +9,22 @@ import { movieSchema } from "./dto/movies.dto";
 import { paramsValidationSchema } from "./dto/params.dto";
 
 const router: Router = express.Router();
-const movieCtrl = new MovieService();
+const movieService = new MovieService();
 
-router.get("/movies-list", movieCtrl.moviesList);
+router.get(
+  "/movies-list",
+
+  movieService.moviesList
+);
 // validateRequestBody(movieSchema),
 
 router.get(
-  "/movie/:id",
+  "/movies/:id",
   validateRequestParams(paramsValidationSchema),
-  movieCtrl.getMovie
+  movieService.getMovie
 );
+router.post("/movies", movieService.addMovie);
+router.put("/movies/:id", movieService.updateMovie);
+router.delete("/movies/:id", movieService.deleteMovie);
 
 export default router;

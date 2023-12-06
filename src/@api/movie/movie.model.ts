@@ -9,7 +9,7 @@ const movieSchema: Schema<MovieType> = new Schema(
       trim: true,
     },
     description: { type: Schema.Types.String, trim: true },
-    releaseDate: { type: Schema.Types.String, trim: true },
+    releaseDate: { type: Schema.Types.Date, trim: true },
     duration: { type: Schema.Types.Number, min: 1 },
     genre: { type: [Schema.Types.String] },
     posterURL: { type: Schema.Types.String, trim: true },
