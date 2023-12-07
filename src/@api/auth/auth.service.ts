@@ -3,13 +3,13 @@ import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../../@config/config";
 import asyncHandler from "../../@middleware/asyncHandler";
-import { User } from "./auth.model";
+import { UserModel } from "./auth.model";
 export class AuthService {
   // Login
   login = asyncHandler(async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
-      const user = await User.findOne({ email });
+      const user = await UserModel.findOne({ email });
       if (!user) {
         return res.status(401).json({
           success: false,
@@ -42,14 +42,20 @@ export class AuthService {
       });
     }
     try {
-      const checkUser = await User.findOne({ email });
+      const checkUser = await UserModel.findOne({ email });
       if (checkUser) {
         return res
           .status(400)
           .json({ success: false, message: "User already exists!" });
       }
 
-      const user = new User({ username, firstName, lastName, email, password });
+      const user = new UserModel({
+        username,
+        firstName,
+        lastName,
+        email,
+        password,
+      });
 
       const hashPassword = await argon2.hash(password);
       user.password = hashPassword;
