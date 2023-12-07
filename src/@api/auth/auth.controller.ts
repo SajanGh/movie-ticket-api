@@ -15,7 +15,7 @@ router.post("/signup", validateRequestBody(userSchema), authService.register);
 router.post(
   "/login",
   validateRequestBody(loginSchema),
-  authToken.authentication,
   authService.login
-);
+  );
+  // authToken.authentication,
 export default router;
