@@ -3,6 +3,7 @@ import asyncHandler from "../../@middleware/asyncHandler";
 import { MovieModel } from "./movie.model";
 
 export default class MovieService {
+  // Get List of movies
   moviesList = asyncHandler(
     async (req: Request, res: Response, next: NextFunction) => {
       try {
@@ -19,6 +20,7 @@ export default class MovieService {
       }
     }
   );
+  // Get a single movie
 
   getMovie = async (req: Request, res: Response) => {
     try {
@@ -31,7 +33,7 @@ export default class MovieService {
       return res.status(404).json({ message: "Movie not found" });
     }
   };
-
+  // Add a movie
   addMovie = async (req: Request, res: Response) => {
     try {
       const newMovie = new MovieModel(req.body);

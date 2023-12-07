@@ -18,7 +18,7 @@ export default class ShowtimService {
     try {
       const movieId = req.params.id;
       const showtimes = await ShowtimeModel.find({ movieId: movieId });
-      if (showtimes) {
+      if (showtimes && showtimes.length > 0) {
         res.status(200).json({ message: "Showtimes", showtimes: showtimes });
       } else {
         res.status(404).json({ message: "No showtimes found for this movie" });

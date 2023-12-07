@@ -10,8 +10,8 @@ const bookingService = new BookingService();
 
 router.post(
   "/bookings",
-  validateRequestBody(bookingSchema),
   bookingService.createBooking
+  // validateRequestBody(bookingSchema),
 );
 
 export default router;

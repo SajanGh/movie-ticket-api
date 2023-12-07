@@ -14,9 +14,9 @@ const movieService = new MovieService();
 router.get(
   "/movies-list",
 
+  validateRequestBody(movieSchema),
   movieService.moviesList
 );
-// validateRequestBody(movieSchema),
 
 router.get(
   "/movies/:id",

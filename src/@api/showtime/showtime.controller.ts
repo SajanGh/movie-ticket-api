@@ -15,11 +15,11 @@ const showtimeService = new ShowtimService();
 
 router.post("/showtimes", showtimeService.addShowTime);
 router.get(
-  "/showtimes/:movieId",
+  "/showtimes/:id",
   [
     validateRequestParams(paramsValidationSchema),
-    validateRequestBody(showtimeSchema),
   ],
+  // validateRequestBody(showtimeSchema),
   showtimeService.getShowTimesForMovie
 );
 
