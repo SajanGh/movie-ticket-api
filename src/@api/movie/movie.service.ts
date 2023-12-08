@@ -8,6 +8,7 @@ export default class MovieService {
     async (req: Request, res: Response, next: NextFunction) => {
       try {
         const movies = await MovieModel.find({});
+
         if (movies) {
           return res
             .status(200)

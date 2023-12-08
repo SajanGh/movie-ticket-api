@@ -12,7 +12,7 @@ const router: Router = express.Router();
 const movieService = new MovieService();
 
 router.get(
-  "/movies-list",
+  "/movies",
 
   validateRequestBody(movieSchema),
   movieService.moviesList
