@@ -23,8 +23,15 @@ export class AuthService {
           .status(401)
           .json({ success: false, message: "Invalid credentials" });
       }
-      const token = jwt.sign({ userId: user._id }, SECRET_KEY);
-      console.log(token);
+      const token = jwt.sign(
+        {
+          userId: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        },
+        SECRET_KEY
+      );
+
       return res
         .status(200)
         .json({ success: true, data: user, accessToken: token });
