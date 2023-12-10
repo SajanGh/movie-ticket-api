@@ -16,7 +16,7 @@ router.post(
   bookingService.createBooking
   // validateRequestBody(bookingSchema),
 );
-router.get("/bookings/:id", bookingService.getBookingDetails);
+router.get("/bookings/:bookingId", bookingService.getBookingDetails);
 // validateRequestParams(bookingSchema),
 
 export default router;

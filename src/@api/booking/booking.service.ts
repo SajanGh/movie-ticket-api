@@ -29,7 +29,7 @@ export default class BookingService {
 
   getBookingDetails = async (req: Request, res: Response) => {
     try {
-      const bookingId = req.params.id;
+      const bookingId = req.params.bookingId;
       const booking = await BookingModel.findById(bookingId).populate(
         "showtimeId",
         "movieId startTime totalSeats seatsBooked"

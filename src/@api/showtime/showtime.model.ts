@@ -6,6 +6,7 @@ const showtimeSchema: Schema = new Schema({
   startTime: { type: Schema.Types.Date, required: true },
   totalSeats: { type: Schema.Types.Number, required: true },
   seatsBooked: { type: Number, default: 0 },
+  totalPrice: { type: Number, default: 200 },
 });
 
 export const ShowtimeModel = model<ShowtimeType>("showtimes", showtimeSchema);

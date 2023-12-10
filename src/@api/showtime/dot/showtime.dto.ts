@@ -8,6 +8,7 @@ export const showtimeSchema = z.object({
   startTime: z.date(),
   totalSeats: z.number(),
   seatsBooked: z.number(),
+  totalPrice: z.number(),
 });
 
 export type ShowtimeType = z.infer<typeof showtimeSchema>;
