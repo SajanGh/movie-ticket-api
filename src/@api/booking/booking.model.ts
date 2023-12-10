@@ -3,14 +3,14 @@ import { BookingType } from "./dto/booking.dto";
 
 const bookingSchema: Schema<BookingType> = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: "UserModel" },
+    userId: { type: Schema.Types.ObjectId, ref: "users" },
     numSeats: { type: Schema.Types.Number, required: true },
     showtimeId: {
       type: Schema.Types.ObjectId,
       required: true,
-      ref: "ShowtimeModel",
+      ref: "showtimes",
     },
-    totalPrice: { type: Schema.Types.Number, required: true },
+    totalPrice: { type: Schema.Types.Number },
   },
   { timestamps: true }
 );

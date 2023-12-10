@@ -16,11 +16,9 @@ const showtimeService = new ShowtimService();
 router.post("/showtimes", showtimeService.addShowTime);
 router.get(
   "/showtimes/:id",
-  [
-    validateRequestParams(paramsValidationSchema),
-  ],
-  // validateRequestBody(showtimeSchema),
+  [validateRequestParams(paramsValidationSchema)],
   showtimeService.getShowTimesForMovie
+  // validateRequestBody(showtimeSchema),
 );
 
 export default router;
