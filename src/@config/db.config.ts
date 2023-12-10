@@ -9,7 +9,7 @@ if (DB_URI) {
   mongoose
     .connect(DB_URI)
     .then(() => {
-      console.log("Mongoose Connection Successfull!");
+      console.log("Database Connection Successfull!");
     })
     .catch((e) => {
       console.log("Mongoose Connection Errror");
