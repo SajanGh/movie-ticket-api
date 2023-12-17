@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../../@config/config";
 import asyncHandler from "../../@middleware/asyncHandler";
 import { UserModel } from "./auth.model";
+import { log } from "console";
 export class AuthService {
   // Login
   login = asyncHandler(async (req: Request, res: Response) => {
@@ -22,10 +23,18 @@ export class AuthService {
           .status(401)
           .json({ success: false, message: "Invalid credentials" });
       }
-      const token = jwt.sign({ userId: user._id }, SECRET_KEY);
+      const token = jwt.sign(
+        {
+          userId: user._id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        },
+        SECRET_KEY
+      );
+
       return res
         .status(200)
-        .json({ success: true, data: user, jwt_token: token });
+        .json({ success: true, data: user, accessToken: token });
     } catch (err) {
       console.log(err, "err");
       return res.status(500).json({ message: "Login failed", success: false });
