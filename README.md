@@ -65,7 +65,7 @@ JSON Data to insert:
  }
 ```
 
-Step 3: At the left side of the postman make the Http Request to POST then click on Search
+Step 3: At the left side of the searchbar use to POST method then click on send.
 
 ## For inserting showtime:
 
@@ -83,6 +83,6 @@ JSON data to be inserted:
 }
 ```
 
-Step 3: Select POST method form the sidebar ffrom the postman Http Request. Then clikc on Search.
+Step 3: Select POST method form the side of the postman . Then click on Search.
 
 # Backend is ready to be served!!!!
