@@ -17,13 +17,16 @@ Before you begin, ensure you have met the following requirements:
    ```bash
    git clone https://github.com/SajanGh/movie-ticket-api
 
+   ```
+
 1. cd movie-ticket-booking-app
 
-2. npm install
+1. npm install
 
-3. Create a .env file in the root directory and configure your environment variables. You can use the provided .env.example as a template.
+1. Create a .env file in the root directory and configure your environment variables. You can use the provided .env.example as a template.
 
-Configuration
+## Configuration
+
 In the .env file, configure the following environment variables:
 
 DATABASE_URL: The URL of your MongoDB database.
@@ -35,10 +38,34 @@ Database Setup
 
 2. Create a new database for the Movie Ticket Booking App.
 
-Starting the Application
+## Starting the Application
+
 To start the application, run the following command:
 npm start
 
+## Setup and insert showtime and movie manually using  URL endpoints :
+
+## For inserting movie in the ticket booking app:
+Step 1 : Go to the postman and  click on search bar then paste this url :
+ Endpoint : http://localhost:3000/api/v1/movies.
+
+Step: 2: Insert the provided JSON data
+ JSON Data to insert:
 
 
+ Step 3: At the left side of the postman make the Http Request to POST then click on Search
 
+
+ ## For inserting showtime:
+
+ Step 1 : Follow the same step from above inserting movie to the ticket booking app.
+ Endpoint: http://localhost:3000/api/v1/somtimes
+
+ Step 2: Inser the provided JSON data:
+ JSON data to be inserted:
+
+
+ Step 3: Select POST method form the sidebar ffrom the postman Http Request. Then clikc on Search.
+
+
+ # Backend is ready to be served!!!!
