@@ -43,29 +43,38 @@ Database Setup
 To start the application, run the following command:
 npm start
 
-## Setup and insert showtime and movie manually using  URL endpoints :
+## Setup and insert showtime and movie manually using URL endpoints :
 
 ## For inserting movie in the ticket booking app:
-Step 1 : Go to the postman and  click on search bar then paste this url :
- Endpoint : http://localhost:3000/api/v1/movies.
+
+Step 1 : Go to the postman and click on search bar then paste this url :
+Endpoint : http://localhost:3000/api/v1/movies.
 
 Step: 2: Insert the provided JSON data
- JSON Data to insert:
+JSON Data to insert:
 
+```
+ {
+   "title": "Lord of the rings:Fellowship of the rings",
+   "genre": ["Adventure"],
+   "releaseDate": "2024-02-29",
+   "duration": 153,
+   "description": "A tale of wealth, love, and tragedy in the Roaring Twenties.",
+   "posterURL":
+     "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg"
+ }
+```
 
- Step 3: At the left side of the postman make the Http Request to POST then click on Search
+Step 3: At the left side of the postman make the Http Request to POST then click on Search
 
+## For inserting showtime:
 
- ## For inserting showtime:
+Step 1 : Follow the same step from above inserting movie to the ticket booking app.
+Endpoint: http://localhost:3000/api/v1/somtimes
 
- Step 1 : Follow the same step from above inserting movie to the ticket booking app.
- Endpoint: http://localhost:3000/api/v1/somtimes
+Step 2: Inser the provided JSON data:
+JSON data to be inserted:
 
- Step 2: Inser the provided JSON data:
- JSON data to be inserted:
+Step 3: Select POST method form the sidebar ffrom the postman Http Request. Then clikc on Search.
 
-
- Step 3: Select POST method form the sidebar ffrom the postman Http Request. Then clikc on Search.
-
-
- # Backend is ready to be served!!!!
+# Backend is ready to be served!!!!
