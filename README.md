@@ -75,6 +75,14 @@ Endpoint: http://localhost:3000/api/v1/somtimes
 Step 2: Inser the provided JSON data:
 JSON data to be inserted:
 
+```
+{
+    "movieId": "65717386b05302a50afc2ad1",
+    "startTime": "2024-03-16T00:24:22.300Z",
+    "totalSeats": 50
+}
+```
+
 Step 3: Select POST method form the sidebar ffrom the postman Http Request. Then clikc on Search.
 
 # Backend is ready to be served!!!!
