@@ -70,7 +70,7 @@ Step 3: At the left side of the postman make the Http Request to POST then click
 ## For inserting showtime:
 
 Step 1 : Follow the same step from above inserting movie to the ticket booking app.
-Endpoint: http://localhost:3000/api/v1/somtimes
+Endpoint: http://localhost:3000/api/v1/showtimes
 
 Step 2: Inser the provided JSON data:
 JSON data to be inserted:
